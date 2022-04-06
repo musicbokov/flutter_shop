@@ -1,0 +1,142 @@
+{
+  "@@locale": "ru",
+  "offline": "Нет подключения",
+  "@offline": {
+    "description": "AppBar при отсутствующем интернете"
+  },
+  "logoText": "Сделай жизнь проще",
+  "@logo": {
+    "description": "Текст под логотипом"
+  },
+  "loginButton": "Войти",
+  "@login": {
+    "description": "Текст для кнопки \"Войти\""
+  },
+  "loginFormUsername": "Введите email",
+  "@loginFromUsername": {
+    "description": "Текст для текстового поля \"Введите email\""
+  },
+  "loginFormPassword": "Введите пароль",
+  "@loginFromPassword": {
+    "description": "Текст для текстового поля \"Введите пароль\""
+  },
+  "loginAuthenticationText": "Авторизация",
+  "@loginAuthenticationText": {
+    "description": "Текст для лейбла \"Авторизация\""
+  },
+
+
+  "flightsOverviewAppBarTitle": "FREIGHT CLOUD",
+  "@flightsOverviewAppBarTitle": {
+    "description": "Title text shown in the AppBar of the Todos Overview Page"
+  },
+  "flightsOverviewFilterTooltip": "Filter",
+  "@flightsOverviewFilterTooltip": {
+    "description": "Tooltip text shown in the filter dropdown of the Todos Overview Page"
+  },
+  "flightsOverviewFilterAll": "Все",
+  "@flightsOverviewFilterAll": {
+    "description": "Text shown in the filter dropdown of the Todos Overview Page for the option to display all todos"
+  },
+  "flightsOverviewFilterActiveOnly": "Актуальные",
+  "@flightsOverviewFilterActiveOnly": {
+    "description": "Text shown in the filter dropdown of the Todos Overview Page for the option to display active todos only"
+  },
+  "flightsOverviewFilterCompletedOnly": "Выполненные",
+  "@flightsOverviewFilterCompletedOnly": {
+    "description": "Text shown in the filter dropdown of the Todos Overview Page for the option to display completed todos only"
+  },
+  "flightsOverviewMarkAllCompleteButtonText": "Mark all complete",
+  "@flightsOverviewMarkAllCompleteButtonText": {
+    "description": "Button text shown in the options dropdown of the Todos Overview Page that marks all current todos as complete"
+  },
+  "flightsOverviewClearCompletedButtonText": "Clear completed",
+  "@flightsOverviewClearCompletedButtonText": {
+    "description": "Button text shown in the options dropdown of the Todos Overview Page that deletes all completed todos"
+  },
+  "flightsOverviewEmptyText": "Список рейсов пуст",
+  "@flightsOverviewEmptyText": {
+    "description": "Text shown in the Todos Overview Page when no todos are found with the selected filters"
+  },
+  "flightsOverviewFlightDeletedSnackbarText": "Рейс \"{flightTitle}\" удален.",
+  "@flightsOverviewFlightDeletedSnackbarText": {
+    "description": "Snackbar text shown when a todo is deleted from the Todos Overview Page",
+    "placeholders": {
+      "flightTitle": {
+        "description": "The title of the todo that was deleted"
+      }
+    }
+  },
+  "flightsOverviewUndoDeletionButtonText": "Отменить",
+  "@flightsOverviewUndoDeletionButtonText": {
+    "description": "Button text shown in the snackbar that undoes a deletion of a todo"
+  },
+  "flightsOverviewErrorSnackbarText": "An error occurred while loading todos.",
+  "@flightsOverviewErrorSnackbarText": {
+    "description": "Snackbar text shown when an error occurs while loading todos"
+  },
+  "flightsOverviewOptionsTooltip": "Options",
+  "@flightsOverviewOptionsTooltip": {
+    "description": "Tooltip text shown in the options dropdown of the Todos Overview Page"
+  },
+  "flightsOverviewOptionsMarkAllComplete": "Mark all as completed",
+  "@flightsOverviewOptionsMarkAllComplete": {
+    "description": "Button text shown in the options dropdown of the Todos Overview Page that marks all todos as complete"
+  },
+  "flightsOverviewOptionsMarkAllIncomplete": "Mark all as incomplete",
+  "@flightsOverviewOptionsMarkAllIncomplete": {
+    "description": "Button text shown in the options dropdown of the Todos Overview Page that marks all todos as incomplete"
+  },
+  "flightsOverviewOptionsClearCompleted": "Clear completed",
+  "@flightsOverviewOptionsClearCompleted": {
+    "description": "Button text shown in the options dropdown of the Todos Overview Page that deletes all completed todos"
+  },
+  "flightDetailsAppBarTitle": "Todo Details",
+  "@flightDetailsAppBarTitle": {
+    "description": "Title text shown in the AppBar of the Todo Details Page"
+  },
+  "flightDetailsDeleteButtonTooltip": "Удалить",
+  "@flightDetailsDeleteButtonTooltip": {
+    "description": "Tooltip text shown in the delete button on the Todo Details Page"
+  },
+  "flightDetailsEditButtonTooltip": "Редактировать",
+  "@flightDetailsEditButtonTooltip": {
+    "description": "Tooltip text shown in the edit button on the Todo Details Page"
+  },
+  "editFlightEditAppBarTitle": "РЕДАКТИРОВАТЬ ЗАЯВКУ",
+  "@editFlightEditAppBarTitle": {
+    "description": "Title text shown in the AppBar of the Todo Edit Page when editing an existing todo"
+  },
+  "editFlightAddAppBarTitle": "ЗАРЕГИСТРИРОВАТЬ ЗАЯВКУ",
+  "@editFlightAddAppBarTitle": {
+    "description": "Title text shown in the AppBar of the Todo Edit Page when adding a new todo"
+  },
+  "editFlightTitleLabel": "Title",
+  "@editFlightTitleLabel": {
+    "description": "Label text shown in the title input field of the Todo Edit Page"
+  },
+  "editFlightDescriptionLabel": "Description",
+  "@editFlightDescriptionLabel": {
+    "description": "Label text shown in the description input field of the Todo Edit Page"
+  },
+  "editFlightSaveButtonTooltip": "Save changes",
+  "@editFlightSaveButtonTooltip": {
+    "description": "Tooltip text shown in the save button on the Todo Edit Page"
+  },
+  "statsAppBarTitle": "Stats",
+  "@statsAppBarTitle": {
+    "description": "Title text shown in the AppBar of the Stats Page"
+  },
+  "statsCompletedTodoCountLabel": "Completed todos",
+  "@statsCompletedTodoCountLabel": {
+    "description": "Label text shown in the completed todos count section of the Stats Page"
+  },
+  "statsActiveTodoCountLabel": "Active todos",
+  "@statsActiveTodoCountLabel": {
+    "description": "Label text shown in the active todos count section of the Stats Page"
+  },
+  "flightListAppBarTitle": "СПИСОК РЕЙСОВ",
+  "@flightListAppBarTitle": {
+    "description": "Текст для страницы со списком рейсов"
+  }
+}
