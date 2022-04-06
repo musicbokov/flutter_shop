@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_shop/cart/cart.dart';
+import 'package:flutter_shop/catalog/catalog.dart';
 import 'package:flutter_shop/home/home.dart';
+import 'package:flutter_shop/profile/profile.dart';
 
 class HomePage extends StatelessWidget {
   static Page page() => const MaterialPage<void>(child: HomePage());
@@ -27,9 +30,9 @@ class HomeView extends StatelessWidget {
       body: IndexedStack(
         index: selectedTab.index,
         children: const [
-          // FlightsOverviewPage(),
-          // FlightsStatsPage(),
-          // FlightListPage(),
+          CatalogPage(),
+          CartPage(),
+          ProfilePage(),
         ],
       ),
       bottomNavigationBar: BottomAppBar(
@@ -39,19 +42,19 @@ class HomeView extends StatelessWidget {
           children: [
             _HomeTabButton(
               groupValue: selectedTab,
-              value: HomeTab.flightList,
-              icon: const Icon(Icons.list),
+              value: HomeTab.catalog,
+              icon: const Icon(Icons.home_outlined),
             ),
             _HomeTabButton(
               groupValue: selectedTab,
-              value: HomeTab.stats,
-              icon: const Icon(Icons.show_chart_rounded),
+              value: HomeTab.cart,
+              icon: const Icon(Icons.shopping_basket_outlined),
             ),
-            // _HomeTabButton(
-            //   groupValue: selectedTab,
-            //   value: HomeTab.flightListOrig,
-            //   icon: const Icon(Icons.show_chart_rounded),
-            // ),
+            _HomeTabButton(
+              groupValue: selectedTab,
+              value: HomeTab.profile,
+              icon: const Icon(Icons.person_outline),
+            ),
           ],
         ),
       ),

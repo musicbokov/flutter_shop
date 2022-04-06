@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_shop/login/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,14 +26,29 @@ class LoginForm extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             const _Logo(),
-            const Padding(padding: EdgeInsets.all(12)),
-            Text(l10n.loginAuthenticationText),
-            const Padding(padding: EdgeInsets.all(12)),
-            _UsernameInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            _PasswordInput(),
-            const Padding(padding: EdgeInsets.all(12)),
-            _LoginButton(),
+            CupertinoFormSection.insetGrouped(
+              clipBehavior: Clip.none,
+              header: Text(l10n.loginAuthenticationText,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 15,
+                  color: Colors.black,
+                ),
+              ),
+              backgroundColor: Colors.transparent,
+              decoration: const BoxDecoration(
+                color: Colors.transparent,
+              ),
+              children: [
+                Column(
+                  children: [
+                    _UsernameInput(),
+                    _PasswordInput(),
+                  ],
+                )
+              ],
+              footer: _LoginButton(),
+            ),
           ],
         ),
       ),
@@ -48,15 +64,21 @@ class _UsernameInput extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.username != current.username,
       builder: (context, state) {
-        return TextField(
+        return CupertinoFormRow(
           key: const Key('loginForm_usernameInput_textField'),
-          onChanged: (username) =>
-              context.read<LoginBloc>().add(LoginUsernameChanged(username)),
-          decoration: InputDecoration(
-            hintText: l10n.loginFormUsername,
-            border: const OutlineInputBorder(),
-            errorText: state.username.invalid ? 'invalid username' : null,
+          child: CupertinoTextField(
+            placeholder: l10n.loginFormUsername,
+            onChanged: (username) =>
+                context.read<LoginBloc>().add(LoginUsernameChanged(username)),
+            padding: const EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(color: const Color(0xFFABABAB)),
+              borderRadius: BorderRadius.circular(5),
+            ),
           ),
+          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+          error: state.username.invalid ? const Text('invalid username') : null,
         );
       },
     );
@@ -71,16 +93,23 @@ class _PasswordInput extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.password != current.password,
       builder: (context, state) {
-        return TextField(
+        return CupertinoFormRow(
           key: const Key('loginForm_passwordInput_textField'),
-          onChanged: (password) =>
-              context.read<LoginBloc>().add(LoginPasswordChanged(password)),
-          obscureText: true,
-          decoration: InputDecoration(
-            hintText: l10n.loginFormPassword,
-            border: const OutlineInputBorder(),
-            errorText: state.password.invalid ? 'invalid password' : null,
+          child: CupertinoTextField(
+            key: const Key('loginForm_continue_raisedButton'),
+            placeholder: l10n.loginFormPassword,
+            onChanged: (password) =>
+                context.read<LoginBloc>().add(LoginPasswordChanged(password)),
+            padding: const EdgeInsets.all(12.0),
+            obscureText: true,
+            decoration: BoxDecoration(
+              color: Colors.transparent,
+              border: Border.all(color: const Color(0xFFABABAB)),
+              borderRadius: BorderRadius.circular(5),
+            ),
           ),
+          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+          error: state.username.invalid ? const Text('invalid password') : null,
         );
       },
     );
@@ -95,19 +124,23 @@ class _LoginButton extends StatelessWidget {
     return BlocBuilder<LoginBloc, LoginState>(
       buildWhen: (previous, current) => previous.status != current.status,
       builder: (context, state) {
-        return state.status.isSubmissionInProgress
-            ? const CircularProgressIndicator()
-            : ElevatedButton(
-          key: const Key('loginForm_continue_raisedButton'),
-          child: Text(l10n.loginButton),
-          style: ButtonStyle(
-            minimumSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width, 60)),
+
+        if (state.status.isSubmissionInProgress) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        return SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: CupertinoButton(
+            child: Text(l10n.loginButton),
+            onPressed: state.status.isValidated ?
+                () => context.read<LoginBloc>().add(const LoginSubmitted())
+                : null,
+            color: Theme.of(context).backgroundColor,
+            disabledColor: Theme.of(context).disabledColor,
           ),
-          onPressed: state.status.isValidated
-              ? () {
-            context.read<LoginBloc>().add(const LoginSubmitted());
-          }
-              : null,
         );
       },
     );
@@ -123,7 +156,8 @@ class _Logo extends StatelessWidget {
 
     return Column(
       children: [
-        Image.asset('logo.png',
+        Image(
+          image: AssetImage('assets/logo.png'),
           width: MediaQuery.of(context).size.width / 2,
         ),
         Text(l10n.logoText,
