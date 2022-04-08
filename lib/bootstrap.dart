@@ -3,19 +3,18 @@ import 'dart:developer';
 
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
-import 'package:flights_api/flights_api.dart';
-import 'package:flights_repository/flights_repository.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_shop/app/app.dart';
 import 'package:flutter_shop/app/app_bloc_observer.dart';
+import 'package:restfull_repository/restfull_repository.dart';
 import 'package:user_repository/user_repository.dart';
 
-void bootstrap({required FlightsApi flightsApi}) {
+void bootstrap({required RestfullApi restfullApi}) {
   FlutterError.onError = (details) {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  final flightsRepository = FlightsRepository(flightsApi: flightsApi);
+  final restfullRepository = RestfullRepository(restfullApi: restfullApi);
   final userRepository = UserRepository();
   final authenticationRepository = AuthenticationRepository();
 
@@ -24,7 +23,7 @@ void bootstrap({required FlightsApi flightsApi}) {
       await BlocOverrides.runZoned(
         () async => runApp(
           App(
-            flightsRepository: flightsRepository,
+            restfullRepository: restfullRepository,
             authenticationRepository: authenticationRepository,
             userRepository: userRepository,
           ),

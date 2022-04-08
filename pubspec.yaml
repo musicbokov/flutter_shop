@@ -23,12 +23,12 @@ dependencies:
     sdk: flutter
   flutter_services_binding: ^0.1.0
   intl: ^0.17.0
-  flights_api:
-    path: packages/flights_api
-  flights_repository:
-    path: packages/flights_repository
-  local_storage_flights_api:
-    path: packages/local_storage_flights_api
+  restfull_api:
+    path: packages/restfull_api
+  example_api:
+    path: packages/example_api
+  restfull_repository:
+    path: packages/restfull_repository
   flow_builder: ^0.0.4
 
 dev_dependencies:

@@ -20,34 +20,38 @@ class LoginForm extends StatelessWidget {
             );
         }
       },
-      child: Align(
-        alignment: const Alignment(0, -1 / 3),
+      child: SafeArea(
         child: Column(
-          mainAxisSize: MainAxisSize.min,
           children: [
-            const _Logo(),
-            CupertinoFormSection.insetGrouped(
-              clipBehavior: Clip.none,
-              header: Text(l10n.loginAuthenticationText,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15,
-                  color: Colors.black,
+            const Flexible(
+              flex: 1,
+              child: _Logo(),
+            ),
+            Flexible(
+              flex: 1,
+              child: CupertinoFormSection.insetGrouped(
+                clipBehavior: Clip.none,
+                header: Text(l10n.loginAuthenticationText,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
                 ),
-              ),
-              backgroundColor: Colors.transparent,
-              decoration: const BoxDecoration(
-                color: Colors.transparent,
-              ),
-              children: [
-                Column(
-                  children: [
-                    _UsernameInput(),
-                    _PasswordInput(),
-                  ],
-                )
-              ],
-              footer: _LoginButton(),
+                backgroundColor: Colors.transparent,
+                decoration: const BoxDecoration(
+                  color: Colors.transparent,
+                ),
+                children: [
+                  Column(
+                    children: [
+                      _UsernameInput(),
+                      _PasswordInput(),
+                    ],
+                  )
+                ],
+                footer: _LoginButton(),
+              )
             ),
           ],
         ),
@@ -77,7 +81,7 @@ class _UsernameInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+          padding: EdgeInsets.only(top: 10, bottom: 10),
           error: state.username.invalid ? const Text('invalid username') : null,
         );
       },
@@ -100,7 +104,7 @@ class _PasswordInput extends StatelessWidget {
             placeholder: l10n.loginFormPassword,
             onChanged: (password) =>
                 context.read<LoginBloc>().add(LoginPasswordChanged(password)),
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12),
             obscureText: true,
             decoration: BoxDecoration(
               color: Colors.transparent,
@@ -108,7 +112,7 @@ class _PasswordInput extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
             ),
           ),
-          padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+          padding: EdgeInsets.only(top: 10, bottom: 10),
           error: state.username.invalid ? const Text('invalid password') : null,
         );
       },
@@ -155,13 +159,15 @@ class _Logo extends StatelessWidget {
     final l10n = context.l10n;
 
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image(
-          image: AssetImage('assets/logo.png'),
-          width: MediaQuery.of(context).size.width / 2,
+          image: const AssetImage('assets/logo.png'),
+          width: MediaQuery.of(context).size.width / 3,
         ),
         Text(l10n.logoText,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
       ],
     );

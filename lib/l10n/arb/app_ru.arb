@@ -24,6 +24,26 @@
   "@loginAuthenticationText": {
     "description": "Текст для лейбла \"Авторизация\""
   },
+  "catalogAppBarTitle": "Wish Swish",
+  "@catalogAppBarTitle": {
+    "description": "AppBar каталога с категориями"
+  },
+  "catalog": "Каталог",
+  "@catalog": {
+    "description": "Текст для наименования каталога"
+  },
+  "cart": "Итого",
+  "@cart": {
+    "description": "Текст о подведении итога для корзины"
+  },
+  "cartButtonPay": "Оплатить",
+  "@cartButtonPay": {
+    "description": "Текст для кнопки оплаты"
+  },
+  "history": "История покупок",
+  "@history": {
+    "description": "Текст для страницы с профилем"
+  },
 
 
   "flightsOverviewAppBarTitle": "FREIGHT CLOUD",
